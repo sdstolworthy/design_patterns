@@ -36,3 +36,11 @@ type PhoneCameraApp struct {
 func (a *PhoneCameraApp) SetEditBehavior(editBehavior EditBehavior) {
 	a.EditBehavior = editBehavior
 }
+
+func RunStrategyPhoto() {
+	basicCamerApp := PhoneCameraApp{EditBehavior: new(BasicEdit), ShareBehavior: new(SocialShare)}
+	basicCamerApp.EditBehavior.Edit()
+	basicCamerApp.ShareBehavior.Share()
+	basicCamerApp.SetEditBehavior(new(AdvancedEdit))
+	basicCamerApp.EditBehavior.Edit()
+}

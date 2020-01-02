@@ -40,3 +40,9 @@ func (d *Duck) Quack() {
 func (d *Duck) Fly() {
 	d.FlyBehavior.Fly()
 }
+
+func RunStrategyDuck() {
+	duck := Duck{QuackBehavior: new(LoudQuack), FlyBehavior: new(DiveFly)}
+	duck.Quack()
+	duck.Fly()
+}
